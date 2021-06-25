@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+/Users/totallyfarhan/Desktop/Programming/Projects/Java/four_function_calculator/.metadata/.plugins/org.eclipse.jdt.core
+4107396924.index
+691439756.index

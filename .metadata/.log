@@ -1,0 +1,939 @@
+!SESSION 2021-06-24 14:10:10.880 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=16.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/totallyfarhan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/totallyfarhan/.eclipse_keyring
+
+!ENTRY org.eclipse.jface 2 0 2021-06-24 14:10:21.007
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-06-24 14:10:21.007
+!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@20914835,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@615c4ea4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jdt.core 4 4 2021-06-25 14:23:15.582
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+//Authors: YOUR NAME HERE
+//Date: 6/24/2021
+//Description: YOUR DESCRIPTION HERE
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import javax.swing.border.LineBorder;
+
+import java.io.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class CalcGUI implements ActionListener {
+	
+	// You can change the name of these variables if you would like
+	// We will need these Strings later to set up the action listener
+	String firstNum;
+	String operand;
+	String secondNum;
+	
+	// You can change this variable "input" name as well if you would like
+	static JTextField input;
+	
+	public static void main(String[] args) throws IOException  {
+		
+		//Create a CalcGUI object called myCalculator
+		CalcGUI myCalculator = new CalcGUI();
+		
+		//Create the JFrame
+		JFrame frame = new JFrame();
+		frame.setResizable(false);
+		frame.setSize(255, 365);
+		//Create the JTextField
+		input = new JTextField();
+		input.setEditable(false);
+		input.setVisible(true);
+		input.setPreferredSize(new Dimension(235, 35));
+		//Create a JPanel
+		JPanel panel = new JPanel();
+		panel.setVisible(true);
+		//Create JButtons
+		JButton zeroButton = new JButton("0");
+		zeroButton.setPreferredSize(new Dimension(55, 55));
+		JButton oneButton = new JButton("1");
+		oneButton.setPreferredSize(new Dimension(55, 55));
+		JButton twoButton = new JButton("2");
+		twoButton.setPreferredSize(new Dimension(55, 55));
+		JButton threeButton = new JButton("3");
+		threeButton.setPreferredSize(new Dimension(55, 55));
+		JButton fourButton = new JButton("4");
+		fourButton.setPreferredSize(new Dimension(55, 55));
+		JButton fiveButton = new JButton("5");
+		fiveButton.setPreferredSize(new Dimension(55, 55));
+		JButton sixButton = new JButton("6");
+		sixButton.setPreferredSize(new Dimension(55, 55));
+		JButton sevenButton = new JButton("7");
+		sevenButton.setPreferredSize(new Dimension(55, 55));
+		JButton eightButton = new JButton("8");
+		eightButton.setPreferredSize(new Dimension(55, 55));
+		JButton nineButton = new JButton("9");
+		nineButton.setPreferredSize(new Dimension(55, 55));
+		JButton addButton = new JButton("+");
+		addButton.setPreferredSize(new Dimension(55, 55));
+		JButton subtractButton = new JButton("-");
+		subtractButton.setPreferredSize(new Dimension(55, 55));
+		JButton multiplyButton = new JButton("×");
+		multiplyButton.setPreferredSize(new Dimension(55, 55));
+		JButton divideButton = new JButton("\u00F7");
+		divideButton.setPreferredSize(new Dimension(55, 55));
+		JButton clearButton = new JButton("AC");
+		clearButton.setPreferredSize(new Dimension(55, 55));
+		JButton enterButton = new JButton("=");
+		enterButton.setPreferredSize(new Dimension(55, 55));
+		JButton decimalButton = new JButton(".");
+		decimalButton.setPreferredSize(new Dimension(55, 55));
+		//Add the buttons and text field to the panel
+		panel.add(input);
+		panel.add(sevenButton);
+		panel.add(eightButton);
+		panel.add(nineButton);
+		panel.add(addButton);
+		panel.add(fourButton);
+		panel.add(fiveButton);
+		panel.add(sixButton);
+		panel.add(subtractButton);
+		panel.add(oneButton);
+		panel.add(twoButton);
+		panel.add(threeButton);
+		panel.add(multiplyButton);
+		panel.add(clearButton);
+		panel.add(zeroButton);
+		panel.add(enterButton);
+		panel.add(divideButton);
+		panel.add(decimalButton);
+		//Add the panel to the frame
+		frame.add(panel);
+		frame.setVisible(true);
+		//Add action listener to all off the buttons
+		zeroButton.addActionListener(myCalculator);
+		oneButton.addActionListener(myCalculator);
+		twoButton.addActionListener(myCalculator);
+		threeButton.addActionListener(myCalculator);
+		fourButton.addActionListener(myCalculator);
+		fiveButton.addActionListener(myCalculator);
+		sixButton.addActionListener(myCalculator);
+		sevenButton.addActionListener(myCalculator);
+		eightButton.addActionListener(myCalculator);
+		nineButton.addActionListener(myCalculator);
+		addButton.addActionListener(myCalculator);
+		subtractButton.addActionListener(myCalculator);
+		multiplyButton.addActionListener(myCalculator);
+		divideButton.addActionListener(myCalculator);
+		decimalButton.addActionListener(myCalculator);
+		clearButton.addActionListener(myCalculator);
+	}
+	
+	//Default constructor
+	CalcGUI() {
+		firstNum = secondNum = operand = "";
+		
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		String buttonPressed = e.getActionCommand();
+		
+		if ((buttonPressed.charAt(0) >= "0" && buttonPressed.charAt(0) < = "9") {
+			
+		}
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2021-06-25 14:23:15.594
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2021-06-25 14:23:15.596
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2021-06-25 14:23:15.623
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+//Authors: YOUR NAME HERE
+//Date: 6/24/2021
+//Description: YOUR DESCRIPTION HERE
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import javax.swing.border.LineBorder;
+
+import java.io.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class CalcGUI implements ActionListener {
+	
+	// You can change the name of these variables if you would like
+	// We will need these Strings later to set up the action listener
+	String firstNum;
+	String operand;
+	String secondNum;
+	
+	// You can change this variable "input" name as well if you would like
+	static JTextField input;
+	
+	public static void main(String[] args) throws IOException  {
+		
+		//Create a CalcGUI object called myCalculator
+		CalcGUI myCalculator = new CalcGUI();
+		
+		//Create the JFrame
+		JFrame frame = new JFrame();
+		frame.setResizable(false);
+		frame.setSize(255, 365);
+		//Create the JTextField
+		input = new JTextField();
+		input.setEditable(false);
+		input.setVisible(true);
+		input.setPreferredSize(new Dimension(235, 35));
+		//Create a JPanel
+		JPanel panel = new JPanel();
+		panel.setVisible(true);
+		//Create JButtons
+		JButton zeroButton = new JButton("0");
+		zeroButton.setPreferredSize(new Dimension(55, 55));
+		JButton oneButton = new JButton("1");
+		oneButton.setPreferredSize(new Dimension(55, 55));
+		JButton twoButton = new JButton("2");
+		twoButton.setPreferredSize(new Dimension(55, 55));
+		JButton threeButton = new JButton("3");
+		threeButton.setPreferredSize(new Dimension(55, 55));
+		JButton fourButton = new JButton("4");
+		fourButton.setPreferredSize(new Dimension(55, 55));
+		JButton fiveButton = new JButton("5");
+		fiveButton.setPreferredSize(new Dimension(55, 55));
+		JButton sixButton = new JButton("6");
+		sixButton.setPreferredSize(new Dimension(55, 55));
+		JButton sevenButton = new JButton("7");
+		sevenButton.setPreferredSize(new Dimension(55, 55));
+		JButton eightButton = new JButton("8");
+		eightButton.setPreferredSize(new Dimension(55, 55));
+		JButton nineButton = new JButton("9");
+		nineButton.setPreferredSize(new Dimension(55, 55));
+		JButton addButton = new JButton("+");
+		addButton.setPreferredSize(new Dimension(55, 55));
+		JButton subtractButton = new JButton("-");
+		subtractButton.setPreferredSize(new Dimension(55, 55));
+		JButton multiplyButton = new JButton("×");
+		multiplyButton.setPreferredSize(new Dimension(55, 55));
+		JButton divideButton = new JButton("\u00F7");
+		divideButton.setPreferredSize(new Dimension(55, 55));
+		JButton clearButton = new JButton("AC");
+		clearButton.setPreferredSize(new Dimension(55, 55));
+		JButton enterButton = new JButton("=");
+		enterButton.setPreferredSize(new Dimension(55, 55));
+		JButton decimalButton = new JButton(".");
+		decimalButton.setPreferredSize(new Dimension(55, 55));
+		//Add the buttons and text field to the panel
+		panel.add(input);
+		panel.add(sevenButton);
+		panel.add(eightButton);
+		panel.add(nineButton);
+		panel.add(addButton);
+		panel.add(fourButton);
+		panel.add(fiveButton);
+		panel.add(sixButton);
+		panel.add(subtractButton);
+		panel.add(oneButton);
+		panel.add(twoButton);
+		panel.add(threeButton);
+		panel.add(multiplyButton);
+		panel.add(clearButton);
+		panel.add(zeroButton);
+		panel.add(enterButton);
+		panel.add(divideButton);
+		panel.add(decimalButton);
+		//Add the panel to the frame
+		frame.add(panel);
+		frame.setVisible(true);
+		//Add action listener to all off the buttons
+		zeroButton.addActionListener(myCalculator);
+		oneButton.addActionListener(myCalculator);
+		twoButton.addActionListener(myCalculator);
+		threeButton.addActionListener(myCalculator);
+		fourButton.addActionListener(myCalculator);
+		fiveButton.addActionListener(myCalculator);
+		sixButton.addActionListener(myCalculator);
+		sevenButton.addActionListener(myCalculator);
+		eightButton.addActionListener(myCalculator);
+		nineButton.addActionListener(myCalculator);
+		addButton.addActionListener(myCalculator);
+		subtractButton.addActionListener(myCalculator);
+		multiplyButton.addActionListener(myCalculator);
+		divideButton.addActionListener(myCalculator);
+		decimalButton.addActionListener(myCalculator);
+		clearButton.addActionListener(myCalculator);
+	}
+	
+	//Default constructor
+	CalcGUI() {
+		firstNum = secondNum = operand = "";
+		
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		String buttonPressed = e.getActionCommand();
+		
+		if ((buttonPressed.charAt(0) >= "0" && buttonPressed.charAt(0) < = "9") {
+			
+		}
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2021-06-25 14:23:15.627
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2021-06-25 14:23:15.628
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2021-06-25 14:23:23.653
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+//Authors: YOUR NAME HERE
+//Date: 6/24/2021
+//Description: YOUR DESCRIPTION HERE
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import javax.swing.border.LineBorder;
+
+import java.io.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class CalcGUI implements ActionListener {
+	
+	// You can change the name of these variables if you would like
+	// We will need these Strings later to set up the action listener
+	String firstNum;
+	String operand;
+	String secondNum;
+	
+	// You can change this variable "input" name as well if you would like
+	static JTextField input;
+	
+	public static void main(String[] args) throws IOException  {
+		
+		//Create a CalcGUI object called myCalculator
+		CalcGUI myCalculator = new CalcGUI();
+		
+		//Create the JFrame
+		JFrame frame = new JFrame();
+		frame.setResizable(false);
+		frame.setSize(255, 365);
+		//Create the JTextField
+		input = new JTextField();
+		input.setEditable(false);
+		input.setVisible(true);
+		input.setPreferredSize(new Dimension(235, 35));
+		//Create a JPanel
+		JPanel panel = new JPanel();
+		panel.setVisible(true);
+		//Create JButtons
+		JButton zeroButton = new JButton("0");
+		zeroButton.setPreferredSize(new Dimension(55, 55));
+		JButton oneButton = new JButton("1");
+		oneButton.setPreferredSize(new Dimension(55, 55));
+		JButton twoButton = new JButton("2");
+		twoButton.setPreferredSize(new Dimension(55, 55));
+		JButton threeButton = new JButton("3");
+		threeButton.setPreferredSize(new Dimension(55, 55));
+		JButton fourButton = new JButton("4");
+		fourButton.setPreferredSize(new Dimension(55, 55));
+		JButton fiveButton = new JButton("5");
+		fiveButton.setPreferredSize(new Dimension(55, 55));
+		JButton sixButton = new JButton("6");
+		sixButton.setPreferredSize(new Dimension(55, 55));
+		JButton sevenButton = new JButton("7");
+		sevenButton.setPreferredSize(new Dimension(55, 55));
+		JButton eightButton = new JButton("8");
+		eightButton.setPreferredSize(new Dimension(55, 55));
+		JButton nineButton = new JButton("9");
+		nineButton.setPreferredSize(new Dimension(55, 55));
+		JButton addButton = new JButton("+");
+		addButton.setPreferredSize(new Dimension(55, 55));
+		JButton subtractButton = new JButton("-");
+		subtractButton.setPreferredSize(new Dimension(55, 55));
+		JButton multiplyButton = new JButton("×");
+		multiplyButton.setPreferredSize(new Dimension(55, 55));
+		JButton divideButton = new JButton("\u00F7");
+		divideButton.setPreferredSize(new Dimension(55, 55));
+		JButton clearButton = new JButton("AC");
+		clearButton.setPreferredSize(new Dimension(55, 55));
+		JButton enterButton = new JButton("=");
+		enterButton.setPreferredSize(new Dimension(55, 55));
+		JButton decimalButton = new JButton(".");
+		decimalButton.setPreferredSize(new Dimension(55, 55));
+		//Add the buttons and text field to the panel
+		panel.add(input);
+		panel.add(sevenButton);
+		panel.add(eightButton);
+		panel.add(nineButton);
+		panel.add(addButton);
+		panel.add(fourButton);
+		panel.add(fiveButton);
+		panel.add(sixButton);
+		panel.add(subtractButton);
+		panel.add(oneButton);
+		panel.add(twoButton);
+		panel.add(threeButton);
+		panel.add(multiplyButton);
+		panel.add(clearButton);
+		panel.add(zeroButton);
+		panel.add(enterButton);
+		panel.add(divideButton);
+		panel.add(decimalButton);
+		//Add the panel to the frame
+		frame.add(panel);
+		frame.setVisible(true);
+		//Add action listener to all off the buttons
+		zeroButton.addActionListener(myCalculator);
+		oneButton.addActionListener(myCalculator);
+		twoButton.addActionListener(myCalculator);
+		threeButton.addActionListener(myCalculator);
+		fourButton.addActionListener(myCalculator);
+		fiveButton.addActionListener(myCalculator);
+		sixButton.addActionListener(myCalculator);
+		sevenButton.addActionListener(myCalculator);
+		eightButton.addActionListener(myCalculator);
+		nineButton.addActionListener(myCalculator);
+		addButton.addActionListener(myCalculator);
+		subtractButton.addActionListener(myCalculator);
+		multiplyButton.addActionListener(myCalculator);
+		divideButton.addActionListener(myCalculator);
+		decimalButton.addActionListener(myCalculator);
+		clearButton.addActionListener(myCalculator);
+	}
+	
+	//Default constructor
+	CalcGUI() {
+		firstNum = secondNum = operand = "";
+		
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		String buttonPressed = e.getActionCommand();
+		
+		if ((buttonPressed.charAt(0) >= "0" && buttonPressed.charAt(0) < = "9") {
+			
+		}
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2021-06-25 14:23:23.654
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2021-06-25 14:23:23.655
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2021-06-25 14:23:24.988
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+//Authors: YOUR NAME HERE
+//Date: 6/24/2021
+//Description: YOUR DESCRIPTION HERE
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import javax.swing.border.LineBorder;
+
+import java.io.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class CalcGUI implements ActionListener {
+	
+	// You can change the name of these variables if you would like
+	// We will need these Strings later to set up the action listener
+	String firstNum;
+	String operand;
+	String secondNum;
+	
+	// You can change this variable "input" name as well if you would like
+	static JTextField input;
+	
+	public static void main(String[] args) throws IOException  {
+		
+		//Create a CalcGUI object called myCalculator
+		CalcGUI myCalculator = new CalcGUI();
+		
+		//Create the JFrame
+		JFrame frame = new JFrame();
+		frame.setResizable(false);
+		frame.setSize(255, 365);
+		//Create the JTextField
+		input = new JTextField();
+		input.setEditable(false);
+		input.setVisible(true);
+		input.setPreferredSize(new Dimension(235, 35));
+		//Create a JPanel
+		JPanel panel = new JPanel();
+		panel.setVisible(true);
+		//Create JButtons
+		JButton zeroButton = new JButton("0");
+		zeroButton.setPreferredSize(new Dimension(55, 55));
+		JButton oneButton = new JButton("1");
+		oneButton.setPreferredSize(new Dimension(55, 55));
+		JButton twoButton = new JButton("2");
+		twoButton.setPreferredSize(new Dimension(55, 55));
+		JButton threeButton = new JButton("3");
+		threeButton.setPreferredSize(new Dimension(55, 55));
+		JButton fourButton = new JButton("4");
+		fourButton.setPreferredSize(new Dimension(55, 55));
+		JButton fiveButton = new JButton("5");
+		fiveButton.setPreferredSize(new Dimension(55, 55));
+		JButton sixButton = new JButton("6");
+		sixButton.setPreferredSize(new Dimension(55, 55));
+		JButton sevenButton = new JButton("7");
+		sevenButton.setPreferredSize(new Dimension(55, 55));
+		JButton eightButton = new JButton("8");
+		eightButton.setPreferredSize(new Dimension(55, 55));
+		JButton nineButton = new JButton("9");
+		nineButton.setPreferredSize(new Dimension(55, 55));
+		JButton addButton = new JButton("+");
+		addButton.setPreferredSize(new Dimension(55, 55));
+		JButton subtractButton = new JButton("-");
+		subtractButton.setPreferredSize(new Dimension(55, 55));
+		JButton multiplyButton = new JButton("×");
+		multiplyButton.setPreferredSize(new Dimension(55, 55));
+		JButton divideButton = new JButton("\u00F7");
+		divideButton.setPreferredSize(new Dimension(55, 55));
+		JButton clearButton = new JButton("AC");
+		clearButton.setPreferredSize(new Dimension(55, 55));
+		JButton enterButton = new JButton("=");
+		enterButton.setPreferredSize(new Dimension(55, 55));
+		JButton decimalButton = new JButton(".");
+		decimalButton.setPreferredSize(new Dimension(55, 55));
+		//Add the buttons and text field to the panel
+		panel.add(input);
+		panel.add(sevenButton);
+		panel.add(eightButton);
+		panel.add(nineButton);
+		panel.add(addButton);
+		panel.add(fourButton);
+		panel.add(fiveButton);
+		panel.add(sixButton);
+		panel.add(subtractButton);
+		panel.add(oneButton);
+		panel.add(twoButton);
+		panel.add(threeButton);
+		panel.add(multiplyButton);
+		panel.add(clearButton);
+		panel.add(zeroButton);
+		panel.add(enterButton);
+		panel.add(divideButton);
+		panel.add(decimalButton);
+		//Add the panel to the frame
+		frame.add(panel);
+		frame.setVisible(true);
+		//Add action listener to all off the buttons
+		zeroButton.addActionListener(myCalculator);
+		oneButton.addActionListener(myCalculator);
+		twoButton.addActionListener(myCalculator);
+		threeButton.addActionListener(myCalculator);
+		fourButton.addActionListener(myCalculator);
+		fiveButton.addActionListener(myCalculator);
+		sixButton.addActionListener(myCalculator);
+		sevenButton.addActionListener(myCalculator);
+		eightButton.addActionListener(myCalculator);
+		nineButton.addActionListener(myCalculator);
+		addButton.addActionListener(myCalculator);
+		subtractButton.addActionListener(myCalculator);
+		multiplyButton.addActionListener(myCalculator);
+		divideButton.addActionListener(myCalculator);
+		decimalButton.addActionListener(myCalculator);
+		clearButton.addActionListener(myCalculator);
+	}
+	
+	//Default constructor
+	CalcGUI() {
+		firstNum = secondNum = operand = "";
+		
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		String buttonPressed = e.getActionCommand();
+		
+		if ((buttonPressed.charAt(0) >= "0" && buttonPressed.charAt(0) < = "9") {
+			
+		}
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2021-06-25 14:23:24.989
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2021-06-25 14:23:24.989
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:880)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2022)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2213)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2994)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
