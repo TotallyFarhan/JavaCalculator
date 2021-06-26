@@ -186,7 +186,8 @@ public class CalcGUI implements ActionListener {
 			}
 			input.setText(Double.toString(result));
 			firstNum = Double.toString(result);
-			System.out.println(result);
+			operand = "";
+			secondNum = "";
 		}
 		
 		else if (buttonPressed.equals("AC")) {
